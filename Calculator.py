@@ -3,11 +3,11 @@ from tkinter import *
 gui = Tk()
 gui.title("Calculator")
 
-#gui.geometry("600x400")
-#gui.configure(bg='blue')
 
-e=Entry(gui,width=40,borderwidth=2)
-e.grid(row=0,column=0,columnspan=5,padx=10,pady=15)
+gui.configure(bg='#9D9A9A')
+
+e=Entry(gui,width=50,bd=5)
+e.grid(row=0,column=0,columnspan=5,padx=10,pady=50)
 
 def button_click(number):
     cur=e.get()
@@ -19,42 +19,42 @@ def button_clear():
 
 def button_add():
     first_number=e.get()
-    global f_num,math
-    math="addition"
+    global f_num,operator
+    operator="addition"
     f_num=int(first_number)
     e.delete(0,END)
 
 def button_sub():
     first_number=e.get()
-    global f_num,math
-    math="subtraction"
+    global f_num,operator
+    operator="subtraction"
     f_num=int(first_number)
     e.delete(0,END)
     
 def button_mul():
     first_number=e.get()
-    global f_num,math
-    math="multiplication"
+    global f_num,operator
+    operator="multiplication"
     f_num=int(first_number)
     e.delete(0,END)
 
 def button_div():
     first_number=e.get()
-    global f_num,math
-    math="Division"
+    global f_num,operator
+    operator="Division"
     f_num=int(first_number)
     e.delete(0,END)
 
 def button_equal():
     second_number=e.get()
     e.delete(0,END)
-    if math=="addition":
+    if operator=="addition":
         e.insert(0,f_num + int(second_number))
-    if math=="subtraction":
+    if operator=="subtraction":
         e.insert(0,f_num - int(second_number))
-    if math=="division":
+    if operator=="division":
         e.insert(0,f_num / int(second_number))
-    if math=="multiplication":
+    if operator=="multiplication":
         e.insert(0,f_num * int(second_number))      
 
 
@@ -108,3 +108,9 @@ button_equal.grid(row=4,column=3)
 button_clear.grid(row=5,column=0, columnspan=4)
 
 gui.mainloop() 
+
+
+#---------------------------------------------------------------------------------------------------------------------
+#This work is Done by Nitin Mishra with  refrence of some website and is designed by me itself
+# Thank you
+# -------------------------------------------------------------------------------------------------------------------- 
