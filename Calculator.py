@@ -19,29 +19,43 @@ def button_clear():
 
 def button_add():
     first_number=e.get()
-    global f_num
+    global f_num,math
+    math="addition"
+    f_num=int(first_number)
+    e.delete(0,END)
+
+def button_sub():
+    first_number=e.get()
+    global f_num,math
+    math="subtraction"
+    f_num=int(first_number)
+    e.delete(0,END)
+    
+def button_mul():
+    first_number=e.get()
+    global f_num,math
+    math="multiplication"
+    f_num=int(first_number)
+    e.delete(0,END)
+
+def button_div():
+    first_number=e.get()
+    global f_num,math
+    math="Division"
     f_num=int(first_number)
     e.delete(0,END)
 
 def button_equal():
     second_number=e.get()
     e.delete(0,END)
-    e.insert(0,f_num + int(second_number))
-    
-def button_sub():
-    second_number=e.get()
-    e.delete(0,END)
-    e.insert(0,f_num + int(second_number))
-
-def button_mul():
-    second_number=e.get()
-    e.delete(0,END)
-    e.insert(0,f_num + int(second_number))
-
-def button_div():
-    second_number=e.get()
-    e.delete(0,END)
-    e.insert(0,f_num + int(second_number))
+    if math=="addition":
+        e.insert(0,f_num + int(second_number))
+    if math=="subtraction":
+        e.insert(0,f_num - int(second_number))
+    if math=="division":
+        e.insert(0,f_num / int(second_number))
+    if math=="multiplication":
+        e.insert(0,f_num * int(second_number))      
 
 
 
@@ -62,7 +76,7 @@ button_sub = Button(gui, text='-', padx=40,pady=20, command=button_sub,bg='#0000
 button_7 = Button(gui, text='7', padx=40,pady=20, command=lambda: button_click(7),bg='#000000', fg='#ffffff', activebackground='#595454', activeforeground='#5e5e56')
 button_8 = Button(gui, text='8', padx=40,pady=20, command=lambda: button_click(8),bg='#000000', fg='#ffffff', activebackground='#595454', activeforeground='#5e5e56')
 button_9 = Button(gui, text='9', padx=40,pady=20, command=lambda: button_click(9),bg='#000000', fg='#ffffff', activebackground='#595454', activeforeground='#5e5e56')
-button_multi = Button(gui, text='*', padx=40,pady=20, command=button_multi,bg='#000000', fg='#ffffff', activebackground='#595454', activeforeground='#5e5e56')
+button_multi = Button(gui, text='*', padx=40,pady=20, command=button_mul,bg='#000000', fg='#ffffff', activebackground='#595454', activeforeground='#5e5e56')
 
 button_divi = Button(gui, text='/', padx=40,pady=20, command= button_div,bg='#000000', fg='#ffffff', activebackground='#595454', activeforeground='#5e5e56')
 button_0 = Button(gui, text='0', padx=40,pady=20, command=lambda: button_click(0),bg='#000000', fg='#ffffff', activebackground='#595454', activeforeground='#5e5e56')
